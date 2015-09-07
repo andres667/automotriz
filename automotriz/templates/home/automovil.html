@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+	Automovil
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de automovil</h1>
+	<br>
+	<a href="{% url 'vista_agregar_automovil' %}"> Agregar un nuevo automovil</a>
+	{% if automovil %}
+	<table>
+		<theader>
+			<tr>
+				<th>Referencia</th>
+				<th>Marca</th>
+				<th>Modelo</th>
+				<th>Precio</th>
+			</tr>
+		</theader>
+		{% for p in automovil %}
+			<tbody>
+				<tr>
+					<td>{{p.idrefecia}}</td>
+					<td>{{p.marca}}</td>
+					<td>{{p.modelo}}</td>
+					<td>{{p.precio}}</td>
+					<td><a class = "btn btn-info" href = "/automovil/{{ p.id }}" ><li class = "icon-search"></li> ver </a></td>
+					<td><a class = "btn btn-info" href="/edit/automovil/{{ p.id }}"><li class = "icon-pencil"></li> Editar </a></td>
+					<td><a class = "btn btn-info" href="/del/automovil/{{ p.id }}"><li class = "icon-trash"></li>Eliminar </a></td>
+				</tr>
+			</tbody>
+		{% endfor %}
+	</table>
+	{% else %}
+		<h2> No existen automoviles activos : </h2>		
+	{% endif %}
+{% endblock %}

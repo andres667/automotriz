@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Vendedor
+{% endblock %}
+
+{% block content %}
+	<h1>{{ vendedor.nombre }}</h1>
+	
+	<br>
+	<p><b>Cedula:</b> {{ vendedor.cedula }} </p>
+	<p><b>Nombre:</b> {{ vendedor.nombre }} </p>
+	<p><b>Apellido:</b> {{ vendedor.apellido }} </p>
+	<p><b>Telefono:</b> {{ vendedor.telefono }} </p>
+	<p><b>Status:</b> {{ vendedor.status }} </p>
+	</br>
+
+	<a href="/vendedores"> Mostrar la lista del vendedor</a>
+
+{% endblock %}	

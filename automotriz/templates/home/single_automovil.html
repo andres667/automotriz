@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Automovil
+{% endblock %}
+
+{% block content %}
+	<h1>{{ automovil.nombre }}</h1>
+	{% if automovil.imagen %}
+		<img src="/media/{{ automovil.imagen }}" width = "300px" heigth = "300px">
+	{% endif %}
+	<br>
+	<p><b>referencia:</b> {{ automovil.idrefecia }} </p>
+	<p><b>Marca:</b> {{ automovil.marca }} </p>
+	<p><b>Modelo:</b> {{ automovil.modelo }} </p>
+	<p><b>Color:</b> {{ automovil.color }} </p>
+	<p><b>Precio:</b> {{ automovil.precio }} </p>
+	<p><b>Status:</b> {{ automovil.status }} </p>
+
+	<a href="/automoviles"> Mostrar la lista de el automovil</a>
+
+{% endblock %}	
+
+

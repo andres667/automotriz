@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+	Ventas
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de ventas</h1>
+	<br>
+	<a href="{% url 'vista_agregar_ventas' %}"> Agregar una nueva venta</a>
+	{% if ventas %}
+	<table>
+		<theader>
+			<tr>
+				<th>Referencia</th>
+				<th>Numero de Ventas</th>
+			</tr>
+		</theader>
+		{% for p in ventas %}
+			<tbody>
+				<tr>
+					<td>{{p.idcavtas}}</td>
+					<td>{{p.total}}</td>
+					<td><a class = "btn btn-info" href = "/ventas/{{ p.id }}" ><li class = "icon-search"></li> ver </a></td>
+					<td><a class = "btn btn-info" href="/edit/ventas/{{ p.id }}"><li class = "icon-pencil"></li> Editar </a></td>
+					<td><a class = "btn btn-info" href="/del/ventas/{{ p.id }}"> <li class = "icon-trash"></li>Eliminar </a></td>
+				</tr>
+			</tbody>
+		{% endfor %}
+	</table>
+	{% else %}
+		<h2> No existen ventas activos : </h2>		
+	{% endif %}
+{% endblock %}
